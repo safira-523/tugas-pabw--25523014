@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+
+  <!-- TODO B.1: tambahkan dua baris meta di bawah ini:
+       <meta charset="...">
+       <meta name="viewport" content="...">  -->
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koleksi buku di rak saya</title>
+</head>
+<body>
+
+  <!-- TODO C.1: buat <header> di sini.
+       Isinya: satu <h1> berisi judul halaman Anda.
+       Di dalamnya juga ada <nav> berisi 3 tautan ke bagian halaman. -->
+    <header>
+        <h1>Koleksi buku di rak saya</h1>
+        <p>Semua buku yang ada di rak saya</p>
+        <nav>
+            <a href="#home">Home</a> | 
+            <a href="#penerbit">Penerbit</a> | 
+            <a href="#tahun-terbit">Tahun terbit</a>
+        </nav>
+    </header>
+
+  <!-- TODO C.2: buat <main> di sini sebagai pembungkus semua bagian isi.
+       Di dalamnya ada 2 <section>, masing-masing punya <h2> sendiri. -->
+
+    <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
+         Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
+
+    <!-- TODO E.1: di dalam section kedua, buat form Anda.
+         Wajib ada: minimal 3 kolom, setiap kolom punya <label for> yang
+         cocok dengan id input-nya, dan satu atribut validasi. -->
+    <main>
+        <section id="penulis">
+        <h2>Penulis</h2>
+        <table>
+            <caption>Daftar Koleksi Buku di Rak</caption>
+            <thead>
+            <tr>
+                <th scope="col">Judul</th>
+                <th scope="col">Penulis</th>
+                <th scope="col">Tahun Terbit</th>
+                <th scope="col">Status Baca</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Laskar Pelangi</td>
+                <td>Andrea Hirata</td>
+                <td>2005</td>
+                <td>Selesai</td>
+            </tr>
+            <tr>
+                <td>Rain</td>
+                <td>Tere Liye</td>
+                <td>2016</td>
+                <td>Sedang dibaca</td>
+            </tr>
+            <tr>
+                <td>Laut Bercerita</td>
+                <td>Leila S. Chudori</td>
+                <td>2017</td>
+                <td>Selesai</td>
+            </tr>
+            </tbody>
+        </table>
+        </section>
+
+        <section id="status-baca">
+        <h2>Status baca</h2>
+        <form action="#" method="post">
+            <div>
+            <label for="judul">Judul:</label>
+            <input type="text" id="judul" name="judul" required>
+            </div>
+            <div>
+            <label for="penulis">Penulis:</label>
+            <input type="text" id="penulis" name="penulis" required>
+            </div>
+            <div>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required>
+            </div>
+            <button type="submit">Simpan</button>
+        </form>
+        </section>
+    </main>
+
+  <!-- TODO C.3: buat <footer> di sini.
+       Isinya: nama Anda, NIM Anda, dan tahun. -->
+    <footer>
+        <p>&copy; Safira Dhiya, 25523014, 2026</p>
+    </footer>
+
+</body>
+</html>
