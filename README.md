@@ -13,6 +13,7 @@ Topik halaman saya: koleksi pakaian di lemari.
 - Dua bagian utama: data, tambah pakaian
 - Kolom tabel: jenis, merk, status
 - Kolom form: jenis, merk, status
-- Gambar: koleksi-1.webp
+- Gambar: gambar-saya.webp
 
-tidak memakai ai
+penggunaan ai = bagian upload gambar format webp dibantu ai, 
+yg lainnya tidak
