@@ -92,11 +92,29 @@
       <img src="gambar-saya.webp"
        alt="pakaian simpel dan elegan dengan hiasan kancing di lengan"
        width="640" height="360" loading="lazy">
-      <figcaption>Set Abaya</figcaption>
+      <figcaption>Abaya</figcaption>
     </figure>
-    
-    <section id="tambah pakaian">
+
+    <section id="tambah-pakaian">
       <h2>Tambah pakaian</h2>
+
+      <form action="/simpan" method="post">
+        <p>
+         <label for="jenis">Jenis</label>
+         <input type="text" id="jenis" name="jenis" required>
+        </p>
+        <p>
+         <label for="merk">Merk</label>
+         <input type="text" id="merk" name="merk" required>
+        </p>
+        <p>
+         <label for="status">Status</label>
+         <input type="text" id="status" name="status" required>
+        </p>
+        <!-- tambahkan minimal dua kolom lagi -->
+        <button type="submit">Simpan</button>
+      </form>
+
       <!-- form Anda nanti di sini (Lembar E) -->
     </section>
   </main>
