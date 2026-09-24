@@ -7,7 +7,6 @@
   --sage-700: #58784F;
   --red-700: #B00020;
 
-  /* Ukuran & Tata Letak */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -17,7 +16,6 @@
   --radius-md: 0.5rem;
   --shadow-1: 0 1px 3px rgba(0, 0, 0, .10);
 
-  /* Tipografi */
   --text-sm: 0.875rem;
   --text-md: 1rem;
   --text-xl: 1.5rem;
