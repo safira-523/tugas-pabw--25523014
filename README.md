@@ -21,15 +21,15 @@ yg lainnya tidak
 ## Pertemuan 4 — Design token halaman profil
 
 Berkas gaya yang akan dibuat: tokens.css, base.css, layout.css, komponen.css, tema.css
-Warna utama: #FFA07A (light salmon), dipilih karena bagus dan cocok dengan tema saya pastel color
+Warna utama: #58784F (hijau gelap), dipilih karena bagus dan cocok dengan tema saya pastel color
 
 ## Token yang saya tetapkan
 
 | Token | Nilai | Untuk apa |
 |---|---|---|
-| --color-primary | #FFA07A | tombol, tautan, penanda |
-| --color-fg | #000000 | warna teks utama |
-| --color-bg | #F8FAFC | latar halaman |
+| --color-primary | #58784F | tombol, tautan, penanda |
+| --color-fg | #58784F | warna teks utama |
+| --color-bg | #F8CFAF | latar halaman |
 | --radius-md | 0.5rem | sudut tombol dan kartu |
 | --space-4 | 1rem | jarak standar antar elemen |
 
