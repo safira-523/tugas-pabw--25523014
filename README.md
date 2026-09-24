@@ -36,6 +36,13 @@ Warna utama: #58784F (hijau gelap), dipilih karena bagus dan cocok dengan tema s
 Kriteria selesai saya: mengubah --color-primary di satu baris
 harus mengubah warna tombol, tautan, judul, dan garis fokus.
 
+penggunaan ai = 
+1. dalam memilih warna karena pilihan saya kontras nya rendah
+2. langkah langkah uji kontras tema
+3. step yang bingung saya tanya maksutnya karena saya bingung
+4. dan beberapa pertanyaan G karena maksut yang saya tidak mengerti
+5. dan saya tanya saat tadi saya erro karena salah tekan
+
  
 
 
