@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+
+  <!-- TODO B.1: tambahkan dua baris meta di bawah ini:
+       <meta charset="...">
+       <meta name="viewport" content="...">  -->
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koleksi pakaian di lemari</title>
+</head>
+
+  <!-- TODO C.1: buat <header> di sini.
+       Isinya: satu <h1> berisi judul halaman Anda.
+       Di dalamnya juga ada <nav> berisi 3 tautan ke bagian halaman. -->
+<body>
+  <header>
+    <h1>Koleksi pakaian di lemari</h1>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#jenis">Jenis</a></li>
+        <li><a href="#merk">Merk</a></li>
+        <li><a href="#bahan">Bahan</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+
+
+  <!-- TODO C.2: buat <main> di sini sebagai pembungkus semua bagian isi.
+       Di dalamnya ada 2 <section>, masing-masing punya <h2> sendiri. -->
+
+    <!-- TODO D.1: di dalam section pertama, buat tabel data Anda.
+         Wajib ada: <caption>, <thead>, <th scope="col">, dan minimal 3 baris data. -->
+
+    <!-- TODO E.1: di dalam section kedua, buat form Anda.
+         Wajib ada: minimal 3 kolom, setiap kolom punya <label for> yang
+         cocok dengan id input-nya, dan satu atribut validasi. -->
+  <main>
+    <section id="data">
+      <h2>Data</h2>
+      <!-- tabel Anda nanti di sini (Lembar D) -->
+       <table>
+        <caption>Judul tabel Anda</caption>
+        <thead>
+            <tr>
+            <th scope="col">Jenis</th>
+            <th scope="col">Merk</th>
+            <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">Gamis</th>
+            <td>Khadijah</td>
+            <td>Terpakai</td>
+            </tr>
+            <tr>
+            <th scope="row">Gamis</th>
+            <td>Sundara</td>
+            <td>Terpakai</td>
+            </tr>
+            <tr>
+            <th scope="row">Jilbab</th>
+            <td>Karaz</td>
+            <td>Baru</td>
+            </tr>
+            <tr>
+            <th scope="row">Gamis</th>
+            <td>Karaz</td>
+            <td>Terpakai</td>
+            </tr>
+            <!-- tambahkan minimal dua baris lagi -->
+        </tbody>
+       </table>
+    </section>
+
+    <figure>
+      <img src="gambar-saya.webp"
+       alt="pakaian simpel dan elegan dengan hiasan kancing di lengan"
+       width="350" height="490" loading="lazy">
+      <figcaption>Simpel Abaya</figcaption>
+    </figure>
+
+    <section id="tambah-pakaian">
+      <h2>Tambah pakaian</h2>
+
+      <form action="/simpan" method="post">
+        <p>
+         <label for="jenis">Jenis</label>
+         <input type="text" id="jenis" name="jenis" required>
+        </p>
+        <p>
+         <label for="merk">Merk</label>
+         <input type="text" id="merk" name="merk" required>
+        </p>
+        <p>
+         <label for="status">Status</label>
+         <input type="text" id="status" name="status" required>
+        </p>
+        <!-- tambahkan minimal dua kolom lagi -->
+        <button type="submit">Simpan</button>
+      </form>
+
+      <!-- form Anda nanti di sini (Lembar E) -->
+    </section>
+  </main>
+   
+  <!-- TODO C.3: buat <footer> di sini.
+       Isinya: nama Anda, NIM Anda, dan tahun. -->
+  <footer>
+    <p>Safira Dhiya · 25523014 · 2026</p>
+  </footer>
+
+</body>
+</html>
