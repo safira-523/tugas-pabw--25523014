@@ -13,6 +13,29 @@ Topik halaman saya: koleksi pakaian di lemari.
 - Dua bagian utama: data, tambah pakaian
 - Kolom tabel: jenis, merk, status
 - Kolom form: jenis, merk, status
-- Gambar: koleksi-1.webp
+- Gambar: gambar-saya.webp
 
-tidak memakai ai
+penggunaan ai = bagian upload gambar format webp dibantu ai, 
+yg lainnya tidak
+
+## Pertemuan 4 — Design token halaman profil
+
+Berkas gaya yang akan dibuat: tokens.css, base.css, layout.css, komponen.css, tema.css
+Warna utama: #FFA07A (light salmon), dipilih karena bagus dan cocok dengan tema saya pastel color
+
+## Token yang saya tetapkan
+
+| Token | Nilai | Untuk apa |
+|---|---|---|
+| --color-primary | #FFA07A | tombol, tautan, penanda |
+| --color-fg | #000000 | warna teks utama |
+| --color-bg | #F8FAFC | latar halaman |
+| --radius-md | 0.5rem | sudut tombol dan kartu |
+| --space-4 | 1rem | jarak standar antar elemen |
+
+Kriteria selesai saya: mengubah --color-primary di satu baris
+harus mengubah warna tombol, tautan, judul, dan garis fokus.
+
+ 
+
+
