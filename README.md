@@ -27,14 +27,21 @@ Warna utama: #58784F (hijau gelap), dipilih karena bagus dan cocok dengan tema s
 
 | Token | Nilai | Untuk apa |
 |---|---|---|
-| --color-primary | #58784F | tombol, tautan, penanda |
-| --color-fg | #58784F | warna teks utama |
-| --color-bg | #F8CFAF | latar halaman |
+| --color-primary | #DB2777 | tombol, tautan, penanda |
+| --color-fg | #1E3A8A | warna teks utama |
+| --color-bg | #EFF6FF | latar halaman |
 | --radius-md | 0.5rem | sudut tombol dan kartu |
 | --space-4 | 1rem | jarak standar antar elemen |
 
 Kriteria selesai saya: mengubah --color-primary di satu baris
 harus mengubah warna tombol, tautan, judul, dan garis fokus.
+
+penggunaan ai = 
+1. dalam memilih warna karena pilihan saya kontras nya rendah
+2. langkah langkah uji kontras tema
+3. step yang bingung saya tanya maksutnya karena saya bingung
+4. dan beberapa pertanyaan G karena maksut yang saya tidak mengerti
+5. dan saya tanya saat tadi saya erro karena salah tekan
 
  
 
