@@ -27,9 +27,9 @@ Warna utama: #58784F (hijau gelap), dipilih karena bagus dan cocok dengan tema s
 
 | Token | Nilai | Untuk apa |
 |---|---|---|
-| --color-primary | #58784F | tombol, tautan, penanda |
-| --color-fg | #58784F | warna teks utama |
-| --color-bg | #F8CFAF | latar halaman |
+| --color-primary | #DB2777 | tombol, tautan, penanda |
+| --color-fg | #1E3A8A | warna teks utama |
+| --color-bg | #EFF6FF | latar halaman |
 | --radius-md | 0.5rem | sudut tombol dan kartu |
 | --space-4 | 1rem | jarak standar antar elemen |
 
