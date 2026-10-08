@@ -43,6 +43,10 @@ penggunaan ai =
 4. dan beberapa pertanyaan G karena maksut yang saya tidak mengerti
 5. dan saya tanya saat tadi saya erro karena salah tekan
 
- 
+worksheet -p8
+penggunaan ai:
+1. merapikan kode bagian C dan D saat banyak error
+2. memahami maksut maksut soal dan menjawab soal F nomor 4
+3. merapikan kode saya yg salah urutan penulisan
 
 
