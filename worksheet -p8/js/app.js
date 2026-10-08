@@ -5,7 +5,6 @@ const profil = {
 };
 
 const jumlahPakaian = 5;
-
 const kalimatPerkenalan = `Nama saya ${profil.nama}, ${profil.peran} yang mengelola Koleksi Pakaian di Lemari.`;
 
 console.log(kalimatPerkenalan);
@@ -30,7 +29,6 @@ const daftarProyek = [
 ];
 
 console.table(profil.keahlian);
-
 console.table(daftarProyek);
 
 const selesai = daftarProyek.filter((proyek) => proyek.selesai);
@@ -38,3 +36,9 @@ console.table(selesai);
 
 const katalog = daftarProyek.find((proyek) => proyek.judul === "Simpel Abaya");
 console.log("Hasil find (Simpel Abaya):", katalog);
+
+const daftarJudul = daftarProyek.map((proyek) => proyek.judul);
+console.log("Hasil map (Daftar Judul):", daftarJudul);
+
+const profilSalinan = { ...profil };
+console.log("Hasil salinan objek { ...profil }:", profilSalinan);
