@@ -50,3 +50,5 @@ penggunaan ai:
 3. merapikan kode saya yg salah urutan penulisan
 4. mengisi yg referensi cepat java script
 
+worksheet -p9
+pakai a1 = memahami soal, mengisi file dom.js, merapikan profil.html saat terjadi penumpukan kartu filter, beberapa soal di tiket keluar, memastikan error saat uji coba filenya karena ragu dan takut nantinya salah terlalu jauh.
