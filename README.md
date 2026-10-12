@@ -48,5 +48,5 @@ penggunaan ai:
 1. merapikan kode bagian C dan D saat banyak error
 2. memahami maksut maksut soal dan menjawab soal F nomor 4
 3. merapikan kode saya yg salah urutan penulisan
-
+4. mengisi yg referensi cepat java script
 
