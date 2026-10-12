@@ -3,6 +3,10 @@ import { daftarProyek } from './app.js';
 const wadahDaftar = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#kosong");
 const barisFilter = document.querySelector("#filter");
+const formTambah = document.querySelector("#tambah-pakaian form");
+const inputJenis = document.querySelector("#jenis");
+const inputMerk = document.querySelector("#merk");
+const inputStatus = document.querySelector("#status");
 
 function buatBarisTabel(proyek) {
   const tr = document.createElement("tr");
@@ -49,7 +53,7 @@ if (tombolSemua) {
 
 barisFilter.addEventListener("click", (event) => {
   const tombol = event.target.closest("button");
-  if (!tombol) return;
+  if (!tombol) return; 
 
   const kategori = tombol.dataset.kategori;
 
@@ -59,4 +63,30 @@ barisFilter.addEventListener("click", (event) => {
 
   renderDaftar(terpilih);
   tandaiTombolAktif(tombol);
+});
+
+formTambah.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const jenis = inputJenis.value.trim();
+  const merk = inputMerk.value.trim();
+  const status = inputStatus.value.trim();
+
+  if (jenis === "" || merk === "" || status === "") {
+    alert("Mohon isi semua kolom dengan benar (tidak boleh kosong atau hanya spasi).");
+    return;
+  }
+
+  const dataBaru = {
+    jenis: jenis,
+    merk: merk,
+    kategori: jenis,
+    status: status.toLowerCase(),
+    tahun: 2026,
+    selesai: true
+  };
+
+  daftarProyek.push(dataBaru);
+  renderDaftar(daftarProyek);
+  formTambah.reset();
 });

@@ -114,3 +114,8 @@ caption {
   text-align: left;
 }
 
+#filter button.aktif {
+  filter: brightness(0.85);
+  font-weight: bold;
+  border: 2px solid var(--color-fg);
+}
