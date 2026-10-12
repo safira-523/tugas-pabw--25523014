@@ -20,12 +20,12 @@ const formatKeahlian = (daftar) => daftar.join(" · ");
 console.log(buatPerkenalan(profil));
 console.log("Keahlian:", formatKeahlian(profil.keahlian));
 
-const daftarProyek = [
-  { judul: "Simpel Abaya", tahun: 2026, selesai: true },
-  { judul: "Gamis Katun", tahun: 2026, selesai: false },
-  { judul: "Jilbab Pashmina", tahun: 2026, selesai: true },
-  { judul: "Kemeja Casual", tahun: 2026, selesai: false },
-  { judul: "Pasban Silk", tahun: 2026, selesai: true }
+export const daftarProyek = [
+  { jenis: "Gamis", merk: "Khadijah", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: true },
+  { jenis: "Gamis", merk: "Sundara", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+  { jenis: "Jilbab", merk: "Karaz Syar'i", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true },
+  { jenis: "Gamis", merk: "Karaz", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+  { jenis: "Jilbab", merk: "Azane", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true }
 ];
 
 console.table(profil.keahlian);
