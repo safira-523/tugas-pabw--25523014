@@ -52,3 +52,6 @@ penggunaan ai:
 
 worksheet -p9
 pakai a1 = memahami soal, mengisi file dom.js, merapikan profil.html saat terjadi penumpukan kartu filter, beberapa soal di tiket keluar, memastikan error saat uji coba filenya karena ragu dan takut nantinya salah terlalu jauh.
+
+p10
+mempernbaiki error, menjawab beberapa pertanyaan, memecahkan galat, memahami soal
