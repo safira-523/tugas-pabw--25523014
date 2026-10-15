@@ -1,3 +1,12 @@
+import { ambilProyek } from './api.js';
+import {
+  renderDaftar,
+  tampilkanMuat,
+  tampilkanGalat,
+  pasangFilter,
+  pasangFormTambah
+} from './dom.js';
+
 const profil = {
   nama: "Safira Dhiyaunnafisah",
   peran: "Mahasiswa Informatika",
@@ -20,13 +29,14 @@ const formatKeahlian = (daftar) => daftar.join(" · ");
 console.log(buatPerkenalan(profil));
 console.log("Keahlian:", formatKeahlian(profil.keahlian));
 
-export const daftarProyek = [
-  { jenis: "Gamis", merk: "Khadijah", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: true },
-  { jenis: "Gamis", merk: "Sundara", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
-  { jenis: "Jilbab", merk: "Karaz Syar'i", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true },
-  { jenis: "Gamis", merk: "Karaz", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
-  { jenis: "Jilbab", merk: "Azane", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true }
-];
+export let daftarProyek = []
+// export const daftarProyek = [
+//   { jenis: "Gamis", merk: "Khadijah", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: true },
+//   { jenis: "Gamis", merk: "Sundara", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+//   { jenis: "Jilbab", merk: "Karaz Syar'i", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true },
+//   { jenis: "Gamis", merk: "Karaz", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+//   { jenis: "Jilbab", merk: "Azane", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true }
+// ];
 
 console.table(profil.keahlian);
 console.table(daftarProyek);
@@ -42,3 +52,22 @@ console.log("Hasil map (Daftar Judul):", daftarJudul);
 
 const profilSalinan = { ...profil };
 console.log("Hasil salinan objek { ...profil }:", profilSalinan);
+
+async function mulaiAplikasi() {
+  tampilkanMuat();
+
+  try {
+    const data = await ambilProyek();
+
+    daftarProyek = data;
+
+    renderDaftar(daftarProyek);
+    pasangFilter(daftarProyek);
+    pasangFormTambah(daftarProyek);
+  } catch (galat) {
+    tampilkanGalat();
+    console.error('Gagal mengambil data proyek:', galat.message);
+  }
+}
+
+mulaiAplikasi();
