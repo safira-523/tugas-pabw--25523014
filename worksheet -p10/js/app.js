@@ -58,13 +58,15 @@ async function mulaiAplikasi() {
 
   try {
     const data = await ambilProyek();
+    console.log("Bentuk data:", Array.isArray(data) ? "Array" : typeof data);
+    console.log("Jumlah data:", data.length);
 
     daftarProyek = data;
 
     renderDaftar(daftarProyek);
     pasangFilter(daftarProyek);
     pasangFormTambah(daftarProyek);
-  } catch (galat) {
+  } catch (galat) { 
     tampilkanGalat();
     console.error('Gagal mengambil data proyek:', galat.message);
   }
