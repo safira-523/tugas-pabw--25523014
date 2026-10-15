@@ -1,0 +1,44 @@
+const profil = {
+  nama: "Safira Dhiyaunnafisah",
+  peran: "Mahasiswa Informatika",
+  keahlian: ["HTML", "CSS", "JavaScript"],
+};
+
+const jumlahPakaian = 5;
+const kalimatPerkenalan = `Nama saya ${profil.nama}, ${profil.peran} yang mengelola Koleksi Pakaian di Lemari.`;
+
+console.log(kalimatPerkenalan);
+console.log("Data Profil:", profil);
+
+
+function buatPerkenalan({ nama, peran }) {
+  return `${nama} — ${peran}`;
+}
+
+const formatKeahlian = (daftar) => daftar.join(" · ");
+
+console.log(buatPerkenalan(profil));
+console.log("Keahlian:", formatKeahlian(profil.keahlian));
+
+export const daftarProyek = [
+  { jenis: "Gamis", merk: "Khadijah", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: true },
+  { jenis: "Gamis", merk: "Sundara", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+  { jenis: "Jilbab", merk: "Karaz Syar'i", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true },
+  { jenis: "Gamis", merk: "Karaz", kategori: "Gamis", status: "terpakai", tahun: 2026, selesai: false },
+  { jenis: "Jilbab", merk: "Azane", kategori: "Jilbab", status: "baru", tahun: 2026, selesai: true }
+];
+
+console.table(profil.keahlian);
+console.table(daftarProyek);
+
+const selesai = daftarProyek.filter((proyek) => proyek.selesai);
+console.table(selesai);
+
+const katalog = daftarProyek.find((proyek) => proyek.judul === "Simpel Abaya");
+console.log("Hasil find (Simpel Abaya):", katalog);
+
+const daftarJudul = daftarProyek.map((proyek) => proyek.judul);
+console.log("Hasil map (Daftar Judul):", daftarJudul);
+
+const profilSalinan = { ...profil };
+console.log("Hasil salinan objek { ...profil }:", profilSalinan);
