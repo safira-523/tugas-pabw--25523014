@@ -55,3 +55,10 @@ pakai a1 = memahami soal, mengisi file dom.js, merapikan profil.html saat terjad
 
 p10
 mempernbaiki error, menjawab beberapa pertanyaan, memecahkan galat, memahami soal
+
+worksheet -p11
+pakai a1 :
+memahami soal, menjawab beberapa pertanyaan akhir, memperbaiki kode error saat uji coba
+
+node -v = v22.23.2
+npm -v = 10.9.8
