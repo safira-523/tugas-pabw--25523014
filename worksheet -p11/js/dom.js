@@ -1,3 +1,5 @@
+import { saring } from "./data.js";
+
 const wadahDaftar = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#kosong");
 const pesanMuat = document.querySelector("#muat");
@@ -20,7 +22,7 @@ export const elemenDOM = {
   inputStatus,
 };
 
-function buatKartu(pakaian) {
+export function buatKartu(pakaian, favorit) {
   const kartu = document.createElement("li");
   kartu.className = "kartu";
 
@@ -44,17 +46,35 @@ function buatKartu(pakaian) {
   status.textContent =
     `Status: ${statusTeks.charAt(0).toUpperCase()}${statusTeks.slice(1)}`;
 
-  kaki.append(status);
+  const tombolFavorit = document.createElement("button");
+  tombolFavorit.type = "button";
+  tombolFavorit.className = "favorit";
+  tombolFavorit.dataset.id = pakaian.id;
+
+  const disukai = favorit.includes(pakaian.id);
+  tombolFavorit.textContent = disukai ? "★" : "☆";
+  tombolFavorit.setAttribute(
+    "aria-label",
+    disukai ? "Hapus dari favorit" : "Tambahkan ke favorit"
+  );
+
+  kaki.append(status, tombolFavorit);
   isi.append(judul, deskripsi);
   kartu.append(isi, kaki);
+
   return kartu;
 }
 
-export function render(daftar) {
+export function render(state) {
   wadahDaftar.textContent = "";
+  tandaiTombolAktif(state.kategoriAktif);
+  const daftarTampil = saring(
+    state.daftarPakaian,
+    state.kategoriAktif
+  );
 
-  if (daftar.length === 0) {
-    pesanKosong.textContent = "Belum ada data.";
+  if (daftarTampil.length === 0) {
+    pesanKosong.textContent = "Belum ada data pakaian.";
     pesanKosong.hidden = false;
     pesanMuat.hidden = true;
     return;
@@ -63,8 +83,10 @@ export function render(daftar) {
   pesanKosong.hidden = true;
   pesanMuat.hidden = true;
 
-  daftar.forEach((pakaian) => {
-    wadahDaftar.append(buatKartu(pakaian));
+  daftarTampil.forEach((pakaian) => {
+    wadahDaftar.append(
+      buatKartu(pakaian, state.favorit)
+    );
   });
 }
 
@@ -84,8 +106,11 @@ export function tampilkanGalat(pesan) {
   pesanKosong.hidden = false;
 }
 
-export function tandaiTombolAktif(tombolAktif) {
+export function tandaiTombolAktif(kategoriAktif) {
   document.querySelectorAll("#filter button").forEach((tombol) => {
-    tombol.classList.toggle("aktif", tombol === tombolAktif);
+    tombol.classList.toggle(
+      "aktif",
+      tombol.dataset.kategori === kategoriAktif
+    );
   });
 }

@@ -1,3 +1,4 @@
+import { render } from "./dom.js";
 export const state = {
   daftarPakaian: [],
   kategoriAktif: "semua",
@@ -8,8 +9,13 @@ export function isiProyek(daftarPakaian) {
   state.daftarPakaian = [...daftarPakaian];
 }
 
-export function aturKategori(kategori) {
+export function pilihKategori(kategori) {
+  if (!["semua", "baru", "terpakai"].includes(kategori)) {
+    return;
+  }
+
   state.kategoriAktif = kategori;
+  render(state);
 }
 
 export function tambahPakaian(pakaian) {
@@ -17,9 +23,11 @@ export function tambahPakaian(pakaian) {
     ...state.daftarPakaian,
     pakaian,
   ];
+
+  render(state);
 }
 
-export function alihFavorit(id) {
+export function tambahFavorit(id) {
   if (state.favorit.includes(id)) {
     state.favorit = state.favorit.filter(
       (idFavorit) => idFavorit !== id
@@ -27,4 +35,6 @@ export function alihFavorit(id) {
   } else {
     state.favorit = [...state.favorit, id];
   }
+
+  render(state);
 }
