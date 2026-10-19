@@ -1,15 +1,10 @@
 
-/*
- * events.js
- * Memasang pendengar peristiwa untuk filter,
- * formulir tambah pakaian, dan tombol favorit.
- */
-
 import {
   state,
   pilihKategori,
   tambahPakaian,
   tambahFavorit,
+  aturUlang,
 } from "./state.js";
 
 import { elemenDOM } from "./dom.js";
@@ -24,36 +19,36 @@ export function pasangPendengar() {
     inputStatus,
   } = elemenDOM;
 
-  // 1. Mengatur filter kategori.
+  const tombolAturUlang = document.querySelector("#atur-ulang");
+
+  if (tombolAturUlang) {
+    tombolAturUlang.addEventListener("click", () => {
+      aturUlang();
+    });
+  }
+
   barisFilter.addEventListener("click", (event) => {
     const tombol = event.target.closest("button");
 
-    if (!tombol || !barisFilter.contains(tombol)) {
-      return;
-    }
+    if (!tombol || !barisFilter.contains(tombol)) return;
 
     const kategori = tombol.dataset.kategori;
 
-    if (!["semua", "baru", "terpakai"].includes(kategori)) {
-      return;
-    }
+    if (!["semua", "baru", "terpakai"].includes(kategori)) return;
 
     pilihKategori(kategori);
   });
 
-  // 2. Mengatur tombol favorit pada setiap kartu pakaian.
   wadahDaftar.addEventListener("click", (event) => {
     const tombol = event.target.closest(".favorit");
 
-    if (!tombol || !wadahDaftar.contains(tombol)) {
-      return;
-    }
+    if (!tombol || !wadahDaftar.contains(tombol)) return;
 
     const id = Number(tombol.dataset.id);
+
     tambahFavorit(id);
   });
 
-  // 3. Mengatur formulir untuk menambahkan pakaian.
   formTambah.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -80,6 +75,7 @@ export function pasangPendengar() {
     };
 
     tambahPakaian(dataBaru);
+
     formTambah.reset();
   });
 }

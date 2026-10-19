@@ -1,28 +1,33 @@
 
 import { ambilProyek } from "./api.js";
-import { state, isiProyek } from "./state.js";
+
+import {
+  state,
+  isiProyek,
+  muat,
+  pulihkan,
+} from "./state.js";
+
 import {
   render,
   aturMemuat,
   tampilkanGalat,
 } from "./dom.js";
+
 import { pasangPendengar } from "./events.js";
 
 async function mulai() {
-  // Memasang event listener satu kali.
   pasangPendengar();
-
-  // Menampilkan status loading.
   aturMemuat(true);
 
   try {
-    // Mengambil data pakaian dari API.
     const data = await ambilProyek();
 
-    // Memasukkan data ke dalam state.
     isiProyek(data);
 
-    // Menggambar tampilan berdasarkan seluruh state.
+    const simpanan = muat();
+    pulihkan(simpanan);
+
     render(state);
   } catch (galat) {
     tampilkanGalat(
@@ -31,7 +36,6 @@ async function mulai() {
 
     console.error("Gagal memuat data:", galat.message);
   } finally {
-    // Menyembunyikan status loading.
     aturMemuat(false);
   }
 }
