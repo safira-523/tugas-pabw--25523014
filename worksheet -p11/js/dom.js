@@ -2,12 +2,23 @@ const wadahDaftar = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#kosong");
 const pesanMuat = document.querySelector("#muat");
 const barisFilter = document.querySelector("#filter");
+const tombolSemua = document.querySelector("#filter button[data-kategori='semua']");
 const formTambah = document.querySelector("#tambah-pakaian form");
 const inputJenis = document.querySelector("#jenis");
 const inputMerk = document.querySelector("#merk");
 const inputStatus = document.querySelector("#status");
 
-let kategoriAktif = "semua";
+export const elemenDOM = {
+  wadahDaftar,
+  pesanKosong,
+  pesanMuat,
+  barisFilter,
+  tombolSemua,
+  formTambah,
+  inputJenis,
+  inputMerk,
+  inputStatus,
+};
 
 function buatKartu(pakaian) {
   const kartu = document.createElement("li");
@@ -36,7 +47,6 @@ function buatKartu(pakaian) {
   kaki.append(status);
   isi.append(judul, deskripsi);
   kartu.append(isi, kaki);
-
   return kartu;
 }
 
@@ -74,72 +84,8 @@ export function tampilkanGalat(pesan) {
   pesanKosong.hidden = false;
 }
 
-function tandaiTombolAktif(tombolAktif) {
+export function tandaiTombolAktif(tombolAktif) {
   document.querySelectorAll("#filter button").forEach((tombol) => {
     tombol.classList.toggle("aktif", tombol === tombolAktif);
-  });
-}
-
-function saringPakaian(daftarPakaian) {
-  if (kategoriAktif === "semua") {
-    return daftarPakaian;
-  }
-
-  return daftarPakaian.filter(
-    (pakaian) =>
-      String(pakaian.status || "").toLowerCase() === kategoriAktif
-  );
-}
-
-export function pasangFilter(daftarPakaian) {
-  const tombolSemua = document.querySelector(
-    "#filter button[data-kategori='semua']"
-  );
-
-  if (tombolSemua) {
-    tandaiTombolAktif(tombolSemua);
-  }
-
-  barisFilter.addEventListener("click", (event) => {
-    const tombol = event.target.closest("button");
-
-    if (!tombol || !barisFilter.contains(tombol)) {
-      return;
-    }
-
-    kategoriAktif = tombol.dataset.kategori;
-
-    tandaiTombolAktif(tombol);
-    render(saringPakaian(daftarPakaian));
-  });
-}
-
-export function pasangFormTambah(daftarPakaian) {
-  formTambah.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const jenis = inputJenis.value.trim();
-    const merk = inputMerk.value.trim();
-    const status = inputStatus.value.trim().toLowerCase();
-
-    if (
-      jenis === "" ||
-      merk === "" ||
-      !["baru", "terpakai"].includes(status)
-    ) {
-      alert("Isi semua kolom. Status harus berupa 'baru' atau 'terpakai'.");
-      return;
-    }
-
-    const dataBaru = {
-      id: Date.now(),
-      jenis,
-      merk,
-      status
-    };
-
-    daftarPakaian.push(dataBaru);
-    render(saringPakaian(daftarPakaian));
-    formTambah.reset();
   });
 }
