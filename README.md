@@ -43,22 +43,32 @@ penggunaan ai =
 4. dan beberapa pertanyaan G karena maksut yang saya tidak mengerti
 5. dan saya tanya saat tadi saya erro karena salah tekan
 
-worksheet -p8
+## worksheet -p8
 penggunaan ai:
 1. merapikan kode bagian C dan D saat banyak error
 2. memahami maksut maksut soal dan menjawab soal F nomor 4
 3. merapikan kode saya yg salah urutan penulisan
 4. mengisi yg referensi cepat java script
 
-worksheet -p9
+## worksheet -p9
 pakai a1 = memahami soal, mengisi file dom.js, merapikan profil.html saat terjadi penumpukan kartu filter, beberapa soal di tiket keluar, memastikan error saat uji coba filenya karena ragu dan takut nantinya salah terlalu jauh.
 
-p10
+## worksheet -p10
 mempernbaiki error, menjawab beberapa pertanyaan, memecahkan galat, memahami soal
 
-worksheet -p11
+## worksheet -p11
 pakai a1 :
 memahami soal, menjawab beberapa pertanyaan akhir, memperbaiki kode error saat uji coba
 
 node -v = v22.23.2
 npm -v = 10.9.8
+
+## worksheet -p12
+
+npm -v : 10.9.8
+node -v = v22.23.2
+pakai ai: 
+memahami maksut soal dan step pengerjaan
+memperbaiki galat di app.vue
+menjawab beberapa pertanyaan referensi cepat
+memastikan error dan uji coba browser
