@@ -1,21 +1,19 @@
+import { reactive } from "vue"; 
 
-/*
- * state.js
- * Menyimpan keadaan aplikasi dan mengatur perubahannya.
- */
-import { render } from "./dom.js";
-
-const KUNCI = "pabw-p11";
+const KUNCI = "pabw-p12"; 
 const VERSI = 2;
 
-export const state = {
-  daftarPakaian: [],
+export const state = reactive({
+  daftarProyek: [], 
   kategoriAktif: "semua",
   favorit: [],
-};
+  memuat: true,     
+  galat: "",        
+});
 
-export function isiProyek(daftarPakaian) {
-  state.daftarPakaian = [...daftarPakaian];
+export function isiProyek(daftar) {
+  state.daftarProyek = [...daftar];
+  state.memuat = false; 
 }
 
 export function simpan(state) {
@@ -24,24 +22,18 @@ export function simpan(state) {
     kategoriAktif: state.kategoriAktif,
     favorit: state.favorit,
   };
-
   localStorage.setItem(KUNCI, JSON.stringify(isi));
 }
 
-// BARU P11 E2: memeriksa simpanan dan nomor versi.
 export function muat() {
   try {
     const isi = JSON.parse(localStorage.getItem(KUNCI));
-
-    // BARU P11 E2: simpanan kosong atau versi tidak cocok.
     if (isi?.versi !== VERSI) {
       localStorage.removeItem(KUNCI);
       return null;
     }
-
     return isi;
   } catch {
-    // BARU P11 E2: simpanan rusak dibuang agar aplikasi tetap berjalan.
     localStorage.removeItem(KUNCI);
     return null;
   }
@@ -49,40 +41,32 @@ export function muat() {
 
 export function pulihkan(isi) {
   if (!isi) return;
-
   state.kategoriAktif = isi.kategoriAktif;
   state.favorit = isi.favorit;
 }
 
 export function pilihKategori(kategori) {
   if (!["semua", "baru", "terpakai"].includes(kategori)) return;
-
   state.kategoriAktif = kategori;
   simpan(state);
-  render(state);
 }
 
 export function tambahPakaian(pakaian) {
-  state.daftarPakaian = [...state.daftarPakaian, pakaian];
-  render(state);
+  state.daftarProyek = [...state.daftarProyek, pakaian];
+  simpan(state);
 }
 
 export function tambahFavorit(id) {
   if (state.favorit.includes(id)) {
-    state.favorit = state.favorit.filter(
-      (idFavorit) => idFavorit !== id
-    );
+    state.favorit = state.favorit.filter((idFavorit) => idFavorit !== id);
   } else {
     state.favorit = [...state.favorit, id];
   }
-
   simpan(state);
-  render(state);
 }
 
 export function aturUlang() {
   localStorage.removeItem(KUNCI);
   state.kategoriAktif = "semua";
   state.favorit = [];
-  render(state);
 }

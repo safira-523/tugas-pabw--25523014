@@ -1,54 +1,73 @@
 <script setup>
+import { onMounted, computed } from 'vue'
+import { profil } from './data.js' 
+import { state, isiProyek, tambahFavorit } from './state.js' 
+import { ambilProyek } from './api.js' 
+
+import KepalaProfil from './components/KepalaProfil.vue'
+import TombolFilter from './components/TombolFilter.vue'
+import DaftarProyek from './components/DaftarProyek.vue'
+import FormKontak from './components/FormKontak.vue'
+
+onMounted(async () => {
+  try {
+    const data = await ambilProyek() 
+    isiProyek(data) 
+  } catch (error) {
+    console.error("Gagal memuat data:", error)
+  }
+})
+
+const kartuTampil = computed(() => {
+  if (state.kategoriAktif === 'semua') {
+    return state.daftarProyek;
+  }
+  return state.daftarProyek.filter(p => p.status === state.kategoriAktif);
+})
 </script>
 
 <template>
   <div class="page">
-    <header>
-      <input type="checkbox" id="tema" class="pengalih-tema">
-      <label for="tema" class="tombol-tema">Tema gelap</label>
-
-      <div class="header-baris">
-        <h1>Koleksi pakaian di lemari</h1>
-
-        <nav aria-label="Navigasi utama">
-          <ul>
-            <li><a href="#data">Data</a></li>
-            <li><a href="#katalog">Katalog</a></li>
-            <li><a href="#tambah-pakaian">Tambah</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+    
+    <KepalaProfil :profil="profil" />
+    
     <main class="isi">
-      <aside class="sisi">
-        <figure>
-          <img
-            src="/gambar-saya.webp"
-            alt="Pakaian simpel dan elegan dengan hiasan kancing di lengan"
-            width="350"
-            height="490"
-            loading="lazy"
-          >
-          <figcaption>Simpel Abaya</figcaption>
-        </figure>
-      </aside>
+      
+      <DaftarProyek />
 
       <div class="utama">
+        
         <section id="data" class="sorotan">
           <h2>Katalog Pakaian</h2>
-
-          <div id="filter">
-            <button type="button" class="filter aktif" data-kategori="semua">Semua</button>
-            <button type="button" class="filter" data-kategori="terpakai">Terpakai</button>
-            <button type="button" class="filter" data-kategori="baru">Baru</button>
-          </div>
-
-          <button type="button" id="atur-ulang">Atur Ulang</button>
-
-          <p id="muat" hidden>Memuat koleksi pakaian...</p>
-          <p id="kosong" hidden>Tidak ada pakaian yang ditemukan.</p>
-          <ul id="daftar" class="galeri"></ul>
+          
+          <TombolFilter />
+          
+          <p id="muat" v-if="state.memuat">Memuat koleksi pakaian...</p>
+          <p id="kosong" v-else-if="kartuTampil.length === 0">Tidak ada pakaian yang ditemukan.</p>
+          
+          <ul v-else class="galeri">
+            <li v-for="pakaian in kartuTampil" :key="pakaian.id" class="kartu">
+              
+              <div class="kartu__isi">
+                <h3 class="kartu__judul">{{ pakaian.jenis }} {{ pakaian.merk }}</h3>
+                <p>Koleksi {{ pakaian.jenis }} dari {{ pakaian.merk }}.</p>
+              </div>
+              
+              <!-- Baris Status dan Tombol Bintang -->
+              <div class="kartu__kaki">
+                <p>Status: {{ pakaian.status }}</p>
+                
+                <button 
+                  class="tombol-favorit" 
+                  @click="tambahFavorit(pakaian.id)"
+                  :style="state.favorit.includes(pakaian.id) ? 'color: #fff;' : 'color: transparent; -webkit-text-stroke: 1px #fff;'"
+                >
+                  ★
+                </button>
+              </div>
+              
+            </li>
+          </ul>
         </section>
 
         <section id="katalog">
@@ -56,36 +75,14 @@
           <p>Pilih filter di bagian atas untuk melihat koleksi pakaian.</p>
         </section>
 
-        <section id="tambah-pakaian">
-          <h2>Tambah pakaian</h2>
-
-          <form action="/simpan" method="post" class="form-kolom">
-            <p>
-              <label for="jenis">Jenis</label>
-              <input type="text" id="jenis" name="jenis" required>
-              <span class="pesan-galat">Kolom jenis wajib diisi dengan benar.</span>
-            </p>
-
-            <p>
-              <label for="merk">Merk</label>
-              <input type="text" id="merk" name="merk" required>
-              <span class="pesan-galat">Kolom merk wajib diisi dengan benar.</span>
-            </p>
-
-            <p>
-              <label for="status">Status</label>
-              <input type="text" id="status" name="status" required>
-              <span class="pesan-galat">Status harus berupa baru atau terpakai.</span>
-            </p>
-
-            <button type="submit">Simpan</button>
-          </form>
-        </section>
+        <FormKontak />
+        
       </div>
     </main>
 
     <footer>
       <p>Safira Dhiyaunnafisah · 25523014 · 2026</p>
     </footer>
+    
   </div>
 </template>

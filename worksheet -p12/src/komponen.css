@@ -119,3 +119,17 @@ caption {
   font-weight: bold;
   border: 2px solid var(--color-fg);
 }
+
+.tombol-favorit {
+  background-color: var(--color-primary) !important; /* Warna pink */
+  border: none !important;
+  border-radius: 6px !important;
+  width: 35px !important;   
+  height: 35px !important;  
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  font-size: 1.2rem !important;
+}
