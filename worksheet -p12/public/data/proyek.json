@@ -1,0 +1,7 @@
+[
+  { "id": 1, "jenis": "Gamis", "merk": "Khadijah", "kategori": "Gamis", "status": "terpakai", "tahun": 2026, "selesai": true },
+  { "id": 2, "jenis": "Gamis", "merk": "Sundara", "kategori": "Gamis", "status": "terpakai", "tahun": 2026, "selesai": false },
+  { "id": 3, "jenis": "Jilbab", "merk": "Karaz Syar'i", "kategori": "Jilbab", "status": "baru", "tahun": 2026, "selesai": true },
+  { "id": 4, "jenis": "Gamis", "merk": "Karaz", "kategori": "Gamis", "status": "terpakai", "tahun": 2026, "selesai": false },
+  { "id": 5, "jenis": "Jilbab", "merk": "Azane", "kategori": "Jilbab", "status": "baru", "tahun": 2026, "selesai": true }
+]
